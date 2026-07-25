@@ -1,2 +1,2 @@
-# arka2518-Phased-CV-Framework-for-Real-Time-Gesture-Control-Sign-Translation
-Conventional HCI depends on physical input devices, limiting accessibility for motor-impaired users and hindering communication with the hearing/speech-impaired. This project develops a scalable vision-based hand-tracking system for low-latency gesture control and extends it to continuous Sign Language Translation using spatio-temporal modeling.
+# Phased CV Framework for Real-Time Gesture Control Sign Translation
+Conventional Human-Computer Interaction depends on physical input devices, limiting accessibility for motor-impaired users and hindering communication with the hearing/speech-impaired. This project develops a scalable vision-based hand-tracking system for low-latency gesture control and extends it to continuous Sign Language Translation using spatio-temporal modelling.
