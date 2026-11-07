@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#rgrad)" />
+  
+  <!-- Product Illustration Icon/Box -->
+  <g transform="translate(225, 70)">
+    <rect width="150" height="190" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" stroke-width="3" />
+    <rect x="18" y="25" width="114" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+    <rect x="18" y="45" width="80" height="6" rx="3" fill="#ffffff" opacity="0.4"/>
+    <circle cx="75" cy="115" r="30" fill="rgba(255,255,255,0.2)" />
+    <text x="75" y="125" fill="#ffffff" font-family="system-ui, sans-serif" font-size="28" font-weight="700" text-anchor="middle">✦</text>
+  </g>
+  
+  <!-- Badges -->
+  <g transform="translate(40, 40)">
+    <rect width="120" height="30" rx="15" fill="#3b82f6" />
+    <text x="60" y="20" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">LAB KIT</text>
+  </g>
+  <g transform="translate(440, 40)">
+    <rect width="120" height="30" rx="15" fill="#10b981" />
+    <text x="60" y="20" fill="#0f172a" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">ALL COMPONENTS</text>
+  </g>
+
+  <!-- Details card -->
+  <rect x="40" y="290" width="520" height="120" rx="14" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(255,255,255,0.15)" />
+  <text x="65" y="335" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Microcontroller 8086 Kit</text>
+  <text x="65" y="365" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Verified Academic Handover • Fair Student Price</text>
+  <text x="65" y="390" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12">P2P exchange on senior graduation</text>
+  
+  <text x="525" y="355" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="26" font-weight="800" text-anchor="end">₹850</text>
+  <text x="525" y="385" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" text-anchor="end">Verified Fair Price</text>
+</svg>
