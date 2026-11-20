@@ -327,6 +327,7 @@ export const mockResources: Resource[] = [
     description: 'The standard textbook for algorithm courses. All chapters have sticky tabs marking high-frequency semester exam questions, recurrence relation proofs, and DP templates.',
     handwrittenNotesIncluded: true,
     edition: '4th International Edition (Hardcover with sticky tabs)',
+    availableUntil: 'May 15, 2026',
   },
   {
     id: 'res-2',
@@ -349,6 +350,7 @@ export const mockResources: Resource[] = [
     description: 'High-speed matrix solver, complex number support, and calculus integration. Approved for semester end exams. Includes protective sliding case and fresh battery.',
     handwrittenNotesIncluded: false,
     edition: 'Original Sensor Model with hard slipcase',
+    availableUntil: 'June 01, 2026',
   },
   {
     id: 'res-3',
@@ -371,6 +373,7 @@ export const mockResources: Resource[] = [
     description: 'Complete mandatory 1st-year drawing set: mini drafter with steel clamp, T-scale, set-squares, roller scale, compass box, and sheet holder board. Saves 70% vs campus bookstore.',
     handwrittenNotesIncluded: true,
     edition: 'Professional Wooden Board Drafting Kit',
+    availableUntil: 'May 20, 2026',
   },
   {
     id: 'res-4',
@@ -393,6 +396,7 @@ export const mockResources: Resource[] = [
     description: 'Standard textbook for senior AI electives. Contains handwritten margin notes clarifying Bayesian probability theorems and EM algorithm math derivations.',
     handwrittenNotesIncluded: true,
     edition: 'Hardcover Reference Edition with handwritten derivations',
+    availableUntil: 'June 15, 2026',
   },
   {
     id: 'res-5',
@@ -415,6 +419,7 @@ export const mockResources: Resource[] = [
     description: 'Crisp diagrams with highlighted pathways (Krebs, Glycolysis, ATP synthesis). Multiple color tabs indexing mid-term chapters. Includes formula review sheet.',
     handwrittenNotesIncluded: true,
     edition: '7th Macmillan Edition (Color Plates intact with tabs)',
+    availableUntil: 'May 28, 2026',
   },
   {
     id: 'res-6',
@@ -437,6 +442,7 @@ export const mockResources: Resource[] = [
     description: 'Warm light metal swing-arm LED lamp with clamp and heavy base. Keeps roommate asleep while you pull night-outs during exam week.',
     handwrittenNotesIncluded: false,
     edition: 'Classic Architect Swing-Arm Desk Lamp',
+    availableUntil: 'May 10, 2026',
   },
 ];
 

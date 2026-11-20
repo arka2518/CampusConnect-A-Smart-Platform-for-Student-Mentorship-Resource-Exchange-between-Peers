@@ -3,9 +3,13 @@ import { Calendar, RefreshCw, Home, BookOpen, Users, Sparkles, ArrowRight } from
 
 interface AcademicCycleBannerProps {
   onExploreHandoffs: () => void;
+  resourceCount?: number;
 }
 
-export const AcademicCycleBanner: React.FC<AcademicCycleBannerProps> = ({ onExploreHandoffs }) => {
+export const AcademicCycleBanner: React.FC<AcademicCycleBannerProps> = ({
+  onExploreHandoffs,
+  resourceCount = 6,
+}) => {
   return (
     <div className="bg-[#FFFDF9] rounded-3xl p-6 sm:p-8 border border-[#EDE5D8] shadow-sm relative overflow-hidden mb-8">
       {/* Background Accent */}
@@ -60,7 +64,7 @@ export const AcademicCycleBanner: React.FC<AcademicCycleBannerProps> = ({ onExpl
             <div className="w-8 h-8 rounded-xl bg-[#FCE38A] text-[#4A3C31] flex items-center justify-center mx-auto mb-1.5 shadow-xs">
               <BookOpen className="w-4 h-4" />
             </div>
-            <div className="text-lg sm:text-xl font-extrabold text-[#4A3C31]">6 Items</div>
+            <div className="text-lg sm:text-xl font-extrabold text-[#4A3C31]">{resourceCount} Items</div>
             <div className="text-[10px] sm:text-xs text-[#746356] font-medium">Fair Price Listed</div>
           </div>
 

@@ -1,4 +1,4 @@
-import { Sparkles, Search, PlusCircle, Home, Users, BookOpen, Layers, LogIn, LogOut } from 'lucide-react';
+import { Sparkles, Search, PlusCircle, Home, Users, BookOpen, Layers, LogIn, LogOut, ShoppingCart } from 'lucide-react';
 import { UserProfile } from '../types';
 
 export type NavTab = 'all' | 'accommodations' | 'mentors' | 'resources' | 'bundles';
@@ -11,7 +11,10 @@ interface NavbarProps {
   onOpenListModal: () => void;
   currentUser: UserProfile | null;
   onOpenLogin: () => void;
+  onEditProfile: () => void;
   onLogout: () => void;
+  cartCount: number;
+  onOpenCart: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -22,7 +25,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenListModal,
   currentUser,
   onOpenLogin,
+  onEditProfile,
   onLogout,
+  cartCount,
+  onOpenCart,
 }) => {
   return (
     <header className="sticky top-0 z-40 bg-[#F7F3EE]/95 backdrop-blur-md border-b border-[#EDE5D8]">
@@ -33,9 +39,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onTabChange('all')}
             className="flex items-center gap-2.5 cursor-pointer group shrink-0"
           >
-            <div className="w-10 h-10 rounded-2xl bg-[#FCE38A] border border-[#DDD1BD] flex items-center justify-center font-extrabold text-xl text-[#4A3C31] shadow-xs group-hover:scale-105 transition-transform">
-              C
-            </div>
+            <img
+              src="/images/brand/campus-connect-icon.svg"
+              alt="CampusConnect Logo"
+              className="w-10 h-10 rounded-xl object-cover shadow-xs group-hover:scale-105 transition-transform"
+            />
             <div>
               <div className="text-lg font-extrabold tracking-tight text-[#4A3C31] flex items-center gap-1">
                 Campus<span className="text-[#F38181]">Connect</span>
@@ -68,15 +76,36 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          {/* Right Action: Auth & Post Handoff */}
+          {/* Right Action: Cart, Auth & Post Handoff */}
           <div className="flex items-center gap-2 sm:gap-2.5">
+            <button
+              type="button"
+              onClick={onOpenCart}
+              title="Open Campus Cart"
+              className="relative p-2 sm:px-3 sm:py-2 rounded-2xl border border-[#EDE5D8] bg-white hover:bg-[#FFF8DF] hover:border-[#FCE38A] text-[#4A3C31] transition-all flex items-center gap-1.5 shrink-0 shadow-xs"
+            >
+              <ShoppingCart className="w-4 h-4 text-[#F38181]" />
+              <span className="hidden lg:inline text-xs font-bold">Cart</span>
+              {cartCount > 0 && (
+                <span className="min-w-[18px] h-[18px] px-1 rounded-full bg-[#F38181] text-white text-[10px] font-extrabold flex items-center justify-center shadow-xs">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+
             {currentUser ? (
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <div className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-white border border-[#EDE5D8] shadow-xs">
+                <button
+                  type="button"
+                  onClick={onEditProfile}
+                  title="Edit student profile"
+                  className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-white hover:bg-[#FFFDF9] border border-[#EDE5D8] hover:border-[#FCE38A] shadow-xs transition-all cursor-pointer"
+                >
                   {currentUser.avatar ? (
                     <img
                       src={currentUser.avatar}
                       alt={currentUser.name}
+                      referrerPolicy="no-referrer"
                       className="w-6 h-6 rounded-full object-cover shrink-0 border border-[#EDE5D8]"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = '/images/mentors/mentor-1.jpg';
@@ -88,14 +117,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                     </div>
                   )}
                   <div className="text-left hidden sm:block">
-                    <div className="text-xs font-bold text-[#4A3C31] leading-tight truncate max-w-[120px]">
-                      {currentUser.name}
+                    <div className="text-xs font-bold text-[#4A3C31] leading-tight truncate max-w-[130px] flex items-center gap-1">
+                      <span className="truncate">{currentUser.name}</span>
+                      {currentUser.isDemoAccount && (
+                        <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded bg-[#FCE38A] text-[#4A3C31] shrink-0">
+                          DEMO
+                        </span>
+                      )}
                     </div>
                     <div className="text-[10px] text-[#746356] leading-tight">
                       {currentUser.role}
                     </div>
                   </div>
-                </div>
+                </button>
 
                 <button
                   onClick={onLogout}
