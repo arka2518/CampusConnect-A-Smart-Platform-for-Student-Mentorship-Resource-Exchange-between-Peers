@@ -19,10 +19,29 @@ export function createApp(): express.Express {
     })
   );
 
-  // CORS configuration
+  // CORS configuration (supports comma-separated origins, '*' or Vercel deployments)
+  const allowedOrigins = env.corsOrigin
+    .split(',')
+    .map((o) => o.trim().replace(/\/+$/, ''))
+    .filter(Boolean);
+
   app.use(
     cors({
-      origin: env.corsOrigin,
+      origin: (origin, callback) => {
+        // Same-origin / server-to-server / health checks have no Origin header
+        if (!origin) return callback(null, true);
+
+        const normalized = origin.replace(/\/+$/, '');
+        if (
+          allowedOrigins.includes('*') ||
+          allowedOrigins.includes(normalized) ||
+          (process.env.VERCEL && normalized.endsWith('.vercel.app'))
+        ) {
+          return callback(null, true);
+        }
+
+        return callback(null, false);
+      },
       credentials: true,
     })
   );

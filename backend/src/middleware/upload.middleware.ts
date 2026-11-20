@@ -3,10 +3,16 @@ import path from 'path';
 import multer from 'multer';
 import { AppError } from './error.middleware';
 
-export const UPLOADS_DIR = path.resolve(__dirname, '../../uploads');
+export const UPLOADS_DIR = process.env.VERCEL
+  ? '/tmp/campusconnect-uploads'
+  : path.resolve(__dirname, '../../uploads');
 
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+  }
+} catch {
+  // Ignore on read-only serverless filesystems; primary uploads stream to Supabase Storage
 }
 
 const ALLOWED_MIME_TYPES = new Set([
